@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Bree+Serif&family=Noto+Serif&family=Work+Sans:ital,wght@1,300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Bree Serif;
+  box-sizing: border-box;
+  color-scheme: light dark;
+}
+
+:root {
+  --bg-color: #f4f3ff;
+  --btn-color: #646cff;
+  --dark-color: #242424;
+  --helper-color: #99b9ff;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  min-width: 32rem;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  /* font-weight: bold; */
+  text-transform: capitalize;
+}
+p,
+li,
+label,
+input,
+textarea {
+  font-size: 1.8rem;
+  line-height: 1.56rem;
+  letter-spacing: 0.1rem;
+  color: var(--bg-color);
+  word-spacing: 0.06rem;
+}
+
+a {
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  text-decoration: inherit;
+}
+.container {
+  max-width: 140rem;
+  padding: 4rem 2.4rem;
+  margin: 0 auto;
+}
+.section-registration {
+  padding: 0 60px;
+}
+label {
+  font-family: Bree Serif;
+  text-transform: capitalize;
+  font-size: 22px;
+}
+input {
+  padding: 7px;
+  box-shadow: inset 0 0 0 0.1rem #f4f3ff;
+
+  border-radius: 10px;
+  width: 350px;
+  margin-bottom: 20px;
+  margin-top: 3px;
+}
+textarea {
+  box-shadow: inset 0 0 0 0.1rem #f4f3ff;
+  height: 100px;
+  border-radius: 10px;
+  width: 350px;
+  margin-bottom: 20px;
+  margin-top: 3px;
+}
+::placeholder {
+  padding: 4px 10px;
+  text-transform: capitalize;
+}
+.main-heading {
+  margin-bottom: 13px;
+  font-weight: 400;
+}
+.same-btn {
+  padding: 12px 14px;
+  font-size: 17px;
+  background-color: #646cff;
+  border-radius: 10px;
+  border: none;
+  text-transform: capitalize;
+}
+.same-btn:hover {
+  box-shadow: inset 0 0 0 0.2rem #f4f3ff;
+  color: blue;
+}
+
