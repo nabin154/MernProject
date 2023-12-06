@@ -19,9 +19,9 @@ const About = () => {
           </div>
           <div className="button-home">
             <button className="btn">Connect now</button>
-            <button className="btn" id="btn2">
+            {/* <button className="btn" id="btn2">
               Learn more
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="second">

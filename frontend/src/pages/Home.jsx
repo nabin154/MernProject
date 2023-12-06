@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../App.css'
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../Context/UserContext';
 
-const Home = (userInfo) => {
+const Home = () => {
+   const {userInfo} = useUser();
+   const navigate = useNavigate();
 
+
+
+   
+   const connectNow =()=>{
+    navigate("/contact");
+   }
+const  learnMore = ()=>{
+  navigate("/about");
+}
 
   return (
     <>
       <div className="hero-container">
         <div className="first">
           <div>
+            <p id="home-user-name">
+              {userInfo && `Hello ${userInfo.username.split(" ")[0]},`}
+            </p>
             <p id="para">"We are the best IT company"</p>
             <h1>
               Welcome to Tech<span className="title">Hub</span>
@@ -21,8 +37,10 @@ const Home = (userInfo) => {
             </p>
           </div>
           <div className="button-home">
-            <button className="btn">Connect now</button>
-            <button className="btn" id="btn2">
+            <button className="btn" onClick={connectNow}>
+              Connect now
+            </button>
+            <button className="btn" id="btn2" onClick={learnMore}>
               Learn more
             </button>
           </div>
@@ -69,9 +87,7 @@ const Home = (userInfo) => {
         <div className="first">
           <div>
             <p id="para">"We are here to help you "</p>
-            <h1>
-              Get Started Today
-            </h1>
+            <h1>Get Started Today</h1>
             <p id="para2">
               "TechHub is a dynamic IT company, specializing in innovative
               solutions and collaborative approaches. We excel in cutting-edge
@@ -80,8 +96,10 @@ const Home = (userInfo) => {
             </p>
           </div>
           <div className="button-home">
-            <button className="btn">Connect now</button>
-            <button className="btn" id="btn2">
+            <button className="btn" onClick={connectNow}>
+              Connect now
+            </button>
+            <button className="btn" id="btn2" onClick={learnMore}>
               Learn more
             </button>
           </div>

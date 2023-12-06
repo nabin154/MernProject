@@ -1,8 +1,20 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import './Navbar.css';
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import "./Navbar.css";
+import { useUser } from "../Context/UserContext";
 
 const Navbar = () => {
+  const {userInfo, setUserInfo} = useUser();
+  const navigate = useNavigate();
+
+
+  const logoutHandler = () => {
+    localStorage.removeItem("userInfo");
+    setUserInfo(null);
+    navigate("/login");
+  };
+
+
   return (
     <header>
       <div className="container">
@@ -30,11 +42,18 @@ const Navbar = () => {
             <li>
               <NavLink to="/register">Register</NavLink>
             </li>
+            <li>
+              { userInfo &&
+              <span id="logout-button" onClick={logoutHandler}>
+                Logout
+              </span>
+}
+            </li>
           </ul>
         </nav>
       </div>
     </header>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

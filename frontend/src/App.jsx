@@ -10,20 +10,13 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import NotFoundPage from './pages/NotFoundPage';
 const App = () => {
-  const [userInfo , setUserInfo ] = useState();
-
-  useEffect(()=>{
-    const user = localStorage.getItem("userInfo");
-    setUserInfo(user);
-    console.log(userInfo);
  
-  },[]);
   return (
   <>
   <BrowserRouter>
 <Navbar/>
   <Routes>
-    <Route path="/" element ={<Home userInfo = {userInfo}/>} />
+    <Route path="/" element ={<Home/>} />
     <Route path="/about" element ={<About/>} />
     <Route path="/services" element ={<Services/>} />
     <Route path="/contact" element ={<Contact/>} />

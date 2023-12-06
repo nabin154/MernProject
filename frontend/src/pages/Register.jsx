@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const Register = () => {
   const [user, setUser] = useState({
@@ -7,6 +8,7 @@ const Register = () => {
     phone: "",
     password: "",
   });
+  const navigate = useNavigate();
   const handleInput = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -34,6 +36,7 @@ const Register = () => {
         config
       );
       setUser({ username: "", email: "", phone: "", password: "" });
+      navigate("/login");
       console.log(data);
     } catch (error) {
       console.error("error in registratioon");

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import axios from "axios";
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
   const handleInput = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -29,7 +31,8 @@ const Login = () => {
         config
       );
       setUser({ email: "", password: "" });
-      localStorage.setItem("userInfo",(data));
+      localStorage.setItem("userInfo",JSON.stringify(data));
+      navigate("/");
       console.log(data);
 
     }
