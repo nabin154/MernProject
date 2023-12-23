@@ -7,14 +7,14 @@ const register = async (req, res) => {
 
     const userExist = await User.findOne({ email });
     if (userExist) {
-      res.status(400).json({ msg: "User already exists" });
+      return res.status(400).json({ msg: "User already exists" });
     }
 
     const user = await User.create({ username, email, phone, password });
     if (user) {
-      res.status(200).json({
+      return res.status(200).json({
         _id: user._id,
-        username:user.username,
+        username: user.username,
         email: user.email,
         phone: user.phone,
         isAdmin: user.isAdmin,
@@ -22,8 +22,7 @@ const register = async (req, res) => {
       });
     }
   } catch (error) {
-
-    next(error);
+    return res.status(400).json({ msg: "Error in registration"});
   }
 };
 
@@ -33,12 +32,12 @@ const login = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      res.send(402).json({ msg: "invalid credentials" });
+      return res.status(402).json({ msg: "Invalid credentials" });
     }
 
     const valid = await user.comparePassword(password);
     if (valid) {
-      res.status(200).json({
+      return res.status(200).json({
         _id: user._id,
         username: user.username,
         email: user.email,
@@ -46,18 +45,16 @@ const login = async (req, res) => {
         isAdmin: user.isAdmin,
         token: await user.generateToken(),
       });
-    }
-    else{
-      res.status(400).json({message :"Invalid password !"});
+    } else {
+      return res.status(400).json({ message: "Invalid password!" });
     }
   } catch (error) {
-
-    next(error);
+    return res.status(400).json({ message: "Error in login!" });
   }
 };
 
 const home = async (req, res) => {
-  res.status(201).send("hello form auth home routes");
+  res.status(201).send("Hello from auth home routes");
 };
 
 module.exports = { register, home, login };

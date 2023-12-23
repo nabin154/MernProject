@@ -36,19 +36,22 @@ const Navbar = () => {
             <li>
               <NavLink to="/services">Services</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
-            <li>
-              { userInfo &&
-              <span id="logout-button" onClick={logoutHandler}>
-                Logout
-              </span>
-}
-            </li>
+            {!userInfo ? (
+              <>
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              </>
+            ) : (
+              <li>
+                <span id="logout-button" onClick={logoutHandler}>
+                  Logout
+                </span>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

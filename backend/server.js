@@ -7,6 +7,8 @@ const authRoutes = require("./Routes/authRoutes");
 const contactRoutes = require("./Routes/contactRoutes");
 const connectDB = require("./utils/db");
 const errorHandler = require("./middlewares/errorMiddleware")
+const protect = require("./middlewares/authMiddleware");
+const serviceRoutes = require("./Routes/serviceRoutes");
 
 const corsOptions = {
   origin: "http://127.0.0.1/5173",
@@ -21,8 +23,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
-app.use("/api/form", contactRoutes);
+app.use("/api/form",protect, contactRoutes);
+app.use("/api/service", serviceRoutes);
 app.use(errorHandler);
+
 
 const PORT = 5000;
 connectDB().then(() => {

@@ -39,7 +39,7 @@ const Register = () => {
       navigate("/login");
       console.log(data);
     } catch (error) {
-      console.error("error in registratioon");
+      console.error(error.response.data.message);
     }
   };
   return (

@@ -9,11 +9,15 @@ import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import NotFoundPage from './pages/NotFoundPage';
+import AdminPanel from './pages/Admin/AdminPanel';
+import AdminServices from './pages/Admin/AdminServices';
+import AdminHome from './pages/Admin/AdminHome';
+import AdminContact from './pages/Admin/AdminContact';
 const App = () => {
  
   return (
   <>
-  <BrowserRouter>
+  
 <Navbar/>
   <Routes>
     <Route path="/" element ={<Home/>} />
@@ -22,11 +26,16 @@ const App = () => {
     <Route path="/contact" element ={<Contact/>} />
     <Route path="/register" element ={<Register/>} />
     <Route path="/login" element ={<Login/>} />
+    <Route path='/admin' element={<AdminPanel/>}>
+      <Route element={<AdminHome/>} index/>
+
+      <Route path='services' element={<AdminServices/>}/>
+      <Route path='contact' element={<AdminContact/>}/>
+    </Route>
     <Route path="*" element ={<NotFoundPage/>} />
   </Routes>
   <Footer/>
   
-  </BrowserRouter>
   </>
   )
 }

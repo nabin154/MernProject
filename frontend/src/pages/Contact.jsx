@@ -1,37 +1,36 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useUser } from "../Context/UserContext";
 const Contact = () => {
-  const [user, setUser] = useState({
-    username:"",
-    email: "",
-    message: "",
-  });
+  const [message, setMessage] = useState('');
+  
+  const {userInfo} = useUser();
   const handleInput = (e) => {
-    let name = e.target.name;
+  
     let value = e.target.value;
 
-    setUser({ ...user, [name]: value });
+    setMessage(value);
   };
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(user);
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+     const config = {
+       headers: {
+         "Content-type": "application/json",
+         Authorization: `Bearer ${userInfo.token}`,
+       },
+     };
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "http://localhost:5000/api/form/contact",
         JSON.stringify({
-          username: user.username,
-          email: user.email,
-          message: user.message,
+          username: userInfo.username,
+          email: userInfo.email,
+          message: message,
         }),
         config
       );
-      setUser({ username:"",email: "", message: "" });
+      setMessage('');
 
       console.log("contact succesful", data);
     } catch (error) {
@@ -65,7 +64,7 @@ const Contact = () => {
                       name="username"
                       placeholder="username"
                       id="uername"
-                      value={user.username}
+                      value={userInfo ? userInfo.username : ""}
                       required
                       autoComplete="off"
                       onChange={handleInput}
@@ -80,7 +79,7 @@ const Contact = () => {
                       name="email"
                       placeholder="enter your email"
                       id="email"
-                      value={user.email}
+                      value={userInfo ? userInfo.email : ""}
                       required
                       autoComplete="off"
                       onChange={handleInput}
@@ -96,7 +95,7 @@ const Contact = () => {
                       name="message"
                       placeholder="enter your message"
                       id="message"
-                      value={user.message}
+                      value={message}
                       required
                       autoComplete="off"
                       onChange={handleInput}
