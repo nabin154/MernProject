@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useUser } from "../Context/UserContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Contact = () => {
   const [message, setMessage] = useState('');
   
@@ -31,7 +34,17 @@ const Contact = () => {
         config
       );
       setMessage('');
-
+   toast.success("Submitted Successfully!", {
+    fontSize:"20px",
+     position: "top-center",
+     autoClose: 5000,
+     hideProgressBar: false,
+     closeOnClick: true,
+     pauseOnHover: true,
+     draggable: true,
+     progress: undefined,
+     theme: "colored",
+   });
       console.log("contact succesful", data);
     } catch (error) {
       console.error("error in registratioon");
@@ -50,6 +63,7 @@ const Contact = () => {
                   width={450}
                   height={450}
                 />
+                <ToastContainer />
               </div>
               <div className="registration-form">
                 <h1 className="main-heading mb-3">Contact form</h1>

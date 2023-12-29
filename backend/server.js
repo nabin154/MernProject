@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/form",protect, contactRoutes);
-app.use("/api/service", serviceRoutes);
+app.use("/api/service",serviceRoutes);
 app.use(errorHandler);
 
 
