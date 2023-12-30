@@ -1,0 +1,40 @@
+
+.contact-container {
+  margin: 20px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.table-main {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  min-height:340px ;
+}
+
+.table-main th,
+.table-main td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.table-main th {
+    background-color: #646cff;
+    letter-spacing: 1.5px;
+
+  color: white;
+  text-align: center;
+  font-size: 17px;
+}
+.delete-button{
+    padding: 10px 14px;
+    margin-left: 8px;
+    font-size: 17px;
+    background-color: red;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+}

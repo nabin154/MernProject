@@ -7,7 +7,6 @@ const authRoutes = require("./Routes/authRoutes");
 const contactRoutes = require("./Routes/contactRoutes");
 const connectDB = require("./utils/db");
 const errorHandler = require("./middlewares/errorMiddleware")
-const protect = require("./middlewares/authMiddleware");
 const serviceRoutes = require("./Routes/serviceRoutes");
 
 const corsOptions = {
@@ -23,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
-app.use("/api/form",protect, contactRoutes);
+app.use("/api/form", contactRoutes);
 app.use("/api/service",serviceRoutes);
 app.use(errorHandler);
 

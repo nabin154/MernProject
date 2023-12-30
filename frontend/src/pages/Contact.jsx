@@ -35,7 +35,9 @@ const Contact = () => {
       );
       setMessage('');
    toast.success("Submitted Successfully!", {
-    fontSize:"20px",
+     style: {
+       fontSize: "20px",
+     },
      position: "top-center",
      autoClose: 5000,
      hideProgressBar: false,

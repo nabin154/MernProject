@@ -5,7 +5,6 @@ import "./CSS/AdminPanel.css";
 
 
 const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-console.log(userInfo);
 const AdminPanel = () => {
   const navigate = useNavigate();
   useEffect(() => {
