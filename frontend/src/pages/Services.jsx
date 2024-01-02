@@ -28,10 +28,10 @@ const Services = () => {
    fetchServices();
  }, []);
   return (
-    <div className="services-container">
+    <div className="services-home">
       <h2 className="page-title">Services</h2>
       <div className="cards-container">
-        {servicesData&&servicesData.map((service, index) => (
+        {servicesData && servicesData.map((service, index) => (
           <div key={index} className="card">
             <img
               src={"images/design.png"}
